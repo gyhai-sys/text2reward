@@ -35,7 +35,7 @@ def load_all_examples(current_task: str, verbose=True):
         # Skip current task to avoid information leaking
         if task == current_task:
             continue
-        with open(os.path.join("../gold_reward_rewrite", gold_reward_path_mapping[task] + ".py"), "r") as f:
+        with open(os.path.join("/home/gyhai/text2reward/code_generation/gold_reward_rewrite", gold_reward_path_mapping[task] + ".py"), "r") as f:
             instruction = instruction_mapping[task]
             reward_code = f.read()
             examples.append({"instruction": instruction, "reward_code": reward_code})

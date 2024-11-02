@@ -1,0 +1,60 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python 调试程序: 当前文件",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "MY_ENV_VAR": "some_value",
+                "PATH": "${env:PATH}",
+                "http_proxy": "http://127.0.0.1:40000",
+                "https_proxy": "http://127.0.0.1:40000",
+                "socks_proxy": "socks5://127.0.0.1:40000"
+            },
+            "python": "/home/gyhai/miniconda3/envs/text2reward/bin/python",
+            "args": [
+                "--env_id", "LiftCube-v0",
+                "--train_num", "8",
+                "--eval_num", "5",
+                "--eval_freq", "12800",
+                "--max_episode_steps", "100",
+                "--rollout_steps", "3200",
+                "--train_max_steps", "2000000",
+                "--seed", "0",
+                "--eval_seed", "1",
+                "--reward_path", "./reward_code/few-shot/LiftCube-v0/specific.py",
+                "--exp_name", "few-shot"
+            ],
+            "cwd": "/home/gyhai/text2reward/run_maniskill"
+        },
+        {
+            "name": "Python 调试程序: 奖励生成",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "MY_ENV_VAR": "some_value",
+                "PATH": "${env:PATH}",
+                "http_proxy": "http://127.0.0.1:40000",
+                "https_proxy": "http://127.0.0.1:40000",
+                "socks_proxy": "socks5://127.0.0.1:40000",
+                "PYTHONPATH": "/home/gyhai/text2reward"
+            },
+            "python": "/home/gyhai/miniconda3/envs/generate_reward_code/bin/python",
+            "args": [
+                "--TASK", "LiftCube-v0",
+                "--MODEL_NAME", "Qwen/Qwen2.5-7B-Instruct",
+            ],
+            "cwd": "/home/gyhai/text2reward/code_generation"
+        }
+    ]
+}

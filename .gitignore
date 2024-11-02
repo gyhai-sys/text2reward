@@ -150,3 +150,7 @@ tmp.*
 
 # Debug
 **/.debug/**/*
+
+# reward function
+general.py
+specific.py
